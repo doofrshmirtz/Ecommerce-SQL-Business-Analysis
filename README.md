@@ -57,7 +57,7 @@ Key finding:
 Beauty and Health generated approximately R$1.26 million in revenue
 and was the highest-performing product category.
 
-![Top product categories](screenshots/01_top_revenue_categories.png)
+![Top product categories](screenshots/01_top_revenue_products.png)
 
 SQL file:
 
