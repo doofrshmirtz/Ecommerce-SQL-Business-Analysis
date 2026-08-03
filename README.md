@@ -152,15 +152,12 @@ SQL file:
 ```text
 Ecommerce-SQL-Business-Analysis/
 ├── notebooks/
-│   └── data_loading.ipynb
 ├── queries/
-│   ├── 01_top_revenue_products.sql
-│   ├── 02_monthly_revenue_trend.sql
-│   ├── 03_customer_lifetime_value.sql
-│   ├── 04_repeat_vs_new_customers.sql
-│   ├── 05_average_order_value.sql
-│   └── 06_geographic_sales_distribution.sql
+├── schema/
+│   ├── olist_ecommerce_schema.png
+│   └── relationship_validation.sql
 ├── screenshots/
+├── .gitignore
 └── README.md
 ```
 
