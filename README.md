@@ -42,12 +42,7 @@ Main tables:
 
 ## Database Structure
 
-![Olist E-Commerce Logical Analysis Schema](schema/olist_ecommerce_schema.png)
 
-> **Schema note:** The tables were cleaned and loaded into PostgreSQL using
-> Pandas. The primary-key and foreign-key relationships shown represent the
-> logical analytical model and are not currently enforced as PostgreSQL
-> constraints.
 
 Relationship-validation queries are available in
 [`schema/relationship_validation.sql`](schema/relationship_validation.sql).
