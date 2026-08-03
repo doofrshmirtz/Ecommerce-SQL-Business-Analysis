@@ -1,75 +1,151 @@
 # E-Commerce SQL Business Analysis
 
-## Project Overview
-End-to-end SQL business analysis of a Brazilian e-commerce platform (Olist), 
-exploring customer behaviour, revenue trends, and geographic sales distribution 
-using PostgreSQL. This project demonstrates core data analyst skills including 
-SQL querying, data modelling, and business insight generation.
+## Executive Summary
 
-## Business Questions Answered
-- Which product categories generate the most revenue?
-- How has monthly revenue trended over time?
-- What is the customer lifetime value distribution?
-- What percentage of customers are repeat buyers?
-- What is the average order value per month?
-- Which states and cities drive the most sales?
+This project analyses approximately 100,000 orders from the Brazilian
+Olist e-commerce marketplace using PostgreSQL.
 
-## Key Insights
-- **Beauty & Health** is the top revenue category with R$1.26M across 9,670 orders
-- **Monthly revenue grew consistently** from 2016 to late 2018, with a notable spike around November 2017 (Black Friday)
-- **96,478 customers (≈100%)** made only one purchase — indicating a critical retention problem for the platform
-- **Average Order Value** remained stable at R$135–144, suggesting consistent purchasing behaviour
-- **São Paulo state alone** dominates sales, reflecting Brazil's economic concentration in the Southeast
+The analysis focuses on revenue performance, customer retention,
+customer value, average order value and geographic sales distribution.
+
+## Business Objectives
+
+- Identify the highest-revenue product categories
+- Analyse monthly revenue development
+- Measure customer lifetime value
+- Calculate repeat-customer behaviour
+- Track average order value
+- Identify high-performing states and cities
 
 ## Dataset
-- Source: [Olist Brazilian E-Commerce Dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
-- 7 tables: orders, customers, products, order_items, payments, sellers, reviews
-- ~100,000 orders from 2016–2018
 
-## Tech Stack
-- PostgreSQL — database
-- DBeaver — SQL client
-- Python (Pandas, SQLAlchemy) — data loading
-- Jupyter Notebook — data pipeline
+The project uses the Olist Brazilian E-Commerce Dataset.
 
-## Database Schema
-| Table | Key Columns |
-|---|---|
-| orders | order_id, customer_id, order_status, timestamps |
-| customers | customer_id, customer_city, customer_state |
-| order_items | order_id, product_id, seller_id, price |
-| products | product_id, product_category_name |
-| payments | order_id, payment_value |
-| sellers | seller_id, seller_city, seller_state |
-| reviews | order_id, review_score |
+Main tables:
 
-## Query Results
+- orders
+- customers
+- order_items
+- products
+- payments
+- sellers
+- reviews
 
-### Top Revenue Products
-![Top Revenue Products](screenshots/01_top_revenue_products.png)
+## Tools
 
-### Monthly Revenue Trend
-![Monthly Revenue](screenshots/02_monthly_revenue_trend.png)
+- PostgreSQL
+- DBeaver
+- Python
+- Pandas
+- SQLAlchemy
+- Jupyter Notebook
 
-### Customer Lifetime Value
-![CLV](screenshots/03_customer_lifetime_value.png)
+## Database Structure
 
-### Repeat vs New Customers
-![Retention](screenshots/04_repeat_vs_new_customers.png)
+Add the database-schema image here.
 
-### Average Order Value
-![AOV](screenshots/05_average_order_value.png)
+## Analysis
 
-### Geographic Distribution
-![Geography](screenshots/06_geographic_sales_distribution.png)
+### 1. Product Category Revenue
 
-## How to Run
-1. Install PostgreSQL and DBeaver
-2. Download the dataset from Kaggle (link above)
-3. Run `notebooks/data_loading.ipynb` to load data into PostgreSQL
-4. Open any query from the `queries/` folder in DBeaver and execute
+Business question:
 
-## Author
-**Tonin Thomas** — MSc Data Science, University of Europe for Applied Sciences  
-[LinkedIn](https://www.linkedin.com/in/toninthomas-98a48219a/) | 
-[GitHub](https://github.com/doofrshmirtz)
+Which product categories generate the highest revenue?
+
+Key finding:
+
+Beauty and Health generated approximately R$1.26 million in revenue
+and was the highest-performing product category.
+
+![Top product categories](screenshots/01_top_revenue_categories.png)
+
+SQL file:
+
+`queries/01_top_revenue_products.sql`
+
+### 2. Monthly Revenue Trend
+
+Business question:
+
+How did delivered-order revenue change over time?
+
+Key finding:
+
+Revenue increased strongly during the observation period, with a
+noticeable peak around November 2017.
+
+![Monthly revenue trend](screenshots/02_monthly_revenue_trend.png)
+
+SQL file:
+
+`queries/02_monthly_revenue_trend.sql`
+
+### 3. Customer Lifetime Value
+
+Add your verified result here.
+
+![Customer lifetime value](screenshots/03_customer_lifetime_value.png)
+
+SQL file:
+
+`queries/03_customer_lifetime_value.sql`
+
+### 4. Customer Retention
+
+The analysis found that the overwhelming majority of customers placed
+only one order, indicating a major retention opportunity.
+
+![Repeat customer rate](screenshots/04_repeat_customer_rate.png)
+
+SQL file:
+
+`queries/04_repeat_vs_new_customers.sql`
+
+### 5. Average Order Value
+
+Average order value remained relatively stable across the analysed
+period.
+
+![Average order value](screenshots/05_average_order_value.png)
+
+SQL file:
+
+`queries/05_average_order_value.sql`
+
+### 6. Geographic Sales Distribution
+
+São Paulo was the strongest geographic market by revenue and order
+volume.
+
+![Geographic sales](screenshots/06_geographic_sales_distribution.png)
+
+SQL file:
+
+`queries/06_geographic_sales_distribution.sql`
+
+## SQL Skills Demonstrated
+
+- Multi-table joins
+- Aggregations
+- Conditional logic
+- Subqueries and CTEs
+- Date-based analysis
+- Customer-level analysis
+- KPI calculation
+- Business insight generation
+
+## Repository Structure
+
+```text
+Ecommerce-SQL-Business-Analysis/
+├── notebooks/
+│   └── data_loading.ipynb
+├── queries/
+│   ├── 01_top_revenue_products.sql
+│   ├── 02_monthly_revenue_trend.sql
+│   ├── 03_customer_lifetime_value.sql
+│   ├── 04_repeat_vs_new_customers.sql
+│   ├── 05_average_order_value.sql
+│   └── 06_geographic_sales_distribution.sql
+├── screenshots/
+└── README.md
