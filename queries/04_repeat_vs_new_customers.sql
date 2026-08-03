@@ -1,40 +1,49 @@
 /*
 Business question:
-What is the distribution of customer lifetime value?
+What percentage of unique customers placed one delivered order
+versus multiple delivered orders?
 
 Purpose:
-Understand how much revenue individual customers generate.
+Measure repeat purchasing behaviour and identify customer-retention risk.
 
 Tables used:
 customers
 orders
-order_items
 
 SQL skills demonstrated:
-CTE or subquery
+Subquery
 JOIN
-SUM
+CASE
+COUNT DISTINCT
+Window function
+Percentage calculation
 GROUP BY
 ORDER BY
 */
 
-SELECT 
+SELECT
     customer_type,
-    COUNT(*)                                    AS total_customers,
-    ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 2) AS percentage
+    COUNT(*) AS total_customers,
+    ROUND(
+        COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (),
+        2
+    ) AS percentage
 FROM (
-    SELECT 
-        c.customer_id,
-        CASE 
-            WHEN COUNT(DISTINCT o.order_id) = 1 THEN 'new_customer'
+    SELECT
+        c.customer_unique_id,
+        CASE
+            WHEN COUNT(DISTINCT o.order_id) = 1
+                THEN 'one_time_customer'
             ELSE 'repeat_customer'
         END AS customer_type
-    FROM customers c
-    JOIN orders o
+    FROM customers AS c
+    INNER JOIN orders AS o
         ON c.customer_id = o.customer_id
     WHERE o.order_status = 'delivered'
-    GROUP BY c.customer_id
+    GROUP BY
+        c.customer_unique_id
 ) AS customer_segments
-GROUP BY customer_type
-ORDER BY total_customers DESC;
-
+GROUP BY
+    customer_type
+ORDER BY
+    total_customers DESC;
