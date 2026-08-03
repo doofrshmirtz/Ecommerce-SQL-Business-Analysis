@@ -41,7 +41,17 @@ Main tables:
 - Jupyter Notebook
 
 ## Database Structure
+## Database Structure
 
+![Olist E-Commerce Logical Analysis Schema](schema/olist_ecommerce_schema.png)
+
+> **Schema note:** The tables were cleaned and loaded into PostgreSQL using
+> Pandas. The primary-key and foreign-key relationships shown represent the
+> logical analytical model and are not currently enforced as PostgreSQL
+> constraints.
+
+The schema shows the seven tables used in this analysis, their column data
+types, and the logical relationships used in the SQL queries.
 
 
 Relationship-validation queries are available in
