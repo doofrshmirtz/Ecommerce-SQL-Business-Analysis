@@ -1,12 +1,12 @@
 /*
 Business question:
-Which product categories generate the highest delivered-order revenue?
+Which product categories generate the highest item revenue?
 
 Purpose:
-Identify the categories contributing most strongly to platform revenue.
+Identify the product categories contributing most strongly to
+platform revenue.
 
 Tables used:
-orders
 order_items
 products
 
@@ -14,16 +14,19 @@ SQL skills demonstrated:
 JOIN
 GROUP BY
 SUM
-COUNT DISTINCT
+COUNT
 ORDER BY
 */
 
-select p.product_category_name,
-count (oi.order_id) as total_orders,
-round(sum(oi.price)::numeric, 2) as total_revenue
-from order_items oi 
-join products p on oi.product_id = p.product_id 
-group by p.product_category_name 
-order by total_revenue desc  
-limit 10;
-
+SELECT
+    p.product_category_name,
+    COUNT(oi.order_id) AS item_count,
+    ROUND(SUM(oi.price)::numeric, 2) AS total_revenue
+FROM order_items AS oi
+JOIN products AS p
+    ON oi.product_id = p.product_id
+GROUP BY
+    p.product_category_name
+ORDER BY
+    total_revenue DESC
+LIMIT 10;
