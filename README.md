@@ -149,3 +149,35 @@ Ecommerce-SQL-Business-Analysis/
 │   └── 06_geographic_sales_distribution.sql
 ├── screenshots/
 └── README.md
+```
+
+## How to Reproduce
+
+1. Download the [Olist Brazilian E-Commerce Dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) from Kaggle.
+2. Create a PostgreSQL database for the project.
+3. Update the local database connection details in the data-loading notebook or configuration file.
+4. Run `notebooks/data_loading.ipynb` to load the CSV files into PostgreSQL.
+5. Execute the SQL files in numerical order:
+
+   - `queries/01_top_revenue_products.sql`
+   - `queries/02_monthly_revenue_trend.sql`
+   - `queries/03_customer_lifetime_value.sql`
+   - `queries/04_repeat_vs_new_customers.sql`
+   - `queries/05_average_order_value.sql`
+   - `queries/06_geographic_sales_distribution.sql`
+
+## Limitations
+
+- The dataset covers a historical period from 2016 to 2018.
+- Customer identities are anonymised.
+- The analysis does not include product cost or profit-margin data.
+- Repeat-purchase analysis may be affected by the dataset's customer identifier structure.
+- The findings are specific to the available Olist marketplace data and may not represent current e-commerce behaviour.
+
+## Author
+
+**Tonin Thomas**  
+MSc Data Science Candidate  
+Expected graduation: September 2026  
+
+[GitHub Profile](https://github.com/doofrshmirtz)
