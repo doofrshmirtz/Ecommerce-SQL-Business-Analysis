@@ -1,6 +1,22 @@
-select * 
-from orders 
-limit 10;
+/*
+Business question:
+Which product categories generate the highest delivered-order revenue?
+
+Purpose:
+Identify the categories contributing most strongly to platform revenue.
+
+Tables used:
+orders
+order_items
+products
+
+SQL skills demonstrated:
+JOIN
+GROUP BY
+SUM
+COUNT DISTINCT
+ORDER BY
+*/
 
 select p.product_category_name,
 count (oi.order_id) as total_orders,
