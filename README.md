@@ -95,7 +95,7 @@ SQL file:
 The analysis found that the overwhelming majority of customers placed
 only one order, indicating a major retention opportunity.
 
-![Repeat customer rate](screenshots/04_repeat_vs_new_customer_rate.png)
+![Repeat customer rate](screenshots/04_repeat_vs_new_customer.png)
 
 SQL file:
 
