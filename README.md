@@ -181,7 +181,7 @@ Ecommerce-SQL-Business-Analysis/
 - The analysis does not include product cost or profit-margin data.
 - Repeat-purchase analysis may be affected by the dataset's customer identifier structure.
 - The findings are specific to the available Olist marketplace data and may not represent current e-commerce behaviour.
-- - `review_id` is not globally unique in the imported source and may be reused across different orders. Review analyses therefore use `order_id` as the primary relationship to the orders table.
+-  `review_id` is not globally unique in the imported source and may be reused across different orders. Review analyses therefore use `order_id` as the primary relationship to the orders table.
 
 ## Author
 
